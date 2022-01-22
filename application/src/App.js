@@ -1,7 +1,12 @@
+import { SyncClient } from "twilio-sync";
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
+	const testMessage = () => {
+		const token = "deltaupsilonsms-3011-dev.twil.io/sms-token";
+	};
+
 	return (
 		<div className="App">
 			<header className="App-header">
