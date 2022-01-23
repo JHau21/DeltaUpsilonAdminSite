@@ -20,8 +20,8 @@ exports.handler = function (context, event, callback) {
 	const headers = {
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
-		"Access-Control-Allow-Origin": "GET",
-		"Access-Control-Allow-Origin": "Content-Type",
+		"Access-Control-Allow-Methods": "GET",
+		"Access-Control-Allow-Headers": "Content-Type",
 	};
 
 	response.setBody({ token: accessToken.toJwt() });
