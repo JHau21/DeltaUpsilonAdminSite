@@ -4,7 +4,7 @@ exports.handler = function (context, event, callback) {
 	const IDENTITY = "handler";
 
 	const access = Twilio.jwt.AccessToken;
-	const syncGrant = access.syncGrant;
+	const syncGrant = access.SyncGrant;
 
 	const grant = new syncGrant({
 		serviceSid: SYNC_SERVICE_SID,
@@ -25,7 +25,7 @@ exports.handler = function (context, event, callback) {
 	};
 
 	response.setBody({ token: accessToken.toJwt() });
-	response.setHeader(headers);
+	response.setHeaders(headers);
 
 	callback(null, response);
 };
