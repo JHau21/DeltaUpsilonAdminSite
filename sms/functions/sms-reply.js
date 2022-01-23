@@ -10,6 +10,18 @@ exports.handler = function (context, event, callback) {
 	// Use `messages.create` to generate a message. Be sure to chain with `then`
 	// and `catch` to properly handle the promise and call `callback` _after_ the
 	// message is sent successfully!
+
+	const headers = {
+		"Content-Type": "application/json",
+		"Access-Control-Allow-Origin": "*",
+		"Access-Control-Allow-Methods": "GET",
+		"Access-Control-Allow-Headers": "Content-Type",
+	};
+
+	const resp = new Twilio.Response();
+
+	resp.setHeaders(headers);
+
 	twilioClient.messages
 		.create({ body, to, from })
 		.then((message) => {

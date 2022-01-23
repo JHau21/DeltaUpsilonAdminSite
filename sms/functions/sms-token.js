@@ -1,3 +1,4 @@
+// This token function is for sync, I will leave this function in case I ever want to use sync
 exports.handler = function (context, event, callback) {
 	const { ACCOUNT_SID, SYNC_SERVICE_SID, API_SID, API_SECRET } = context;
 
