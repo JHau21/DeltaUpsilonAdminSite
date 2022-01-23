@@ -2,6 +2,8 @@
 exports.handler = function (context, event, callback) {
 	const { ACCOUNT_SID, SYNC_SERVICE_SID, API_SID, API_SECRET } = context;
 
+	const twilioClient = context.getTwilioClient();
+
 	const IDENTITY = "handler";
 
 	const access = Twilio.jwt.AccessToken;
@@ -21,12 +23,22 @@ exports.handler = function (context, event, callback) {
 	const headers = {
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
+		"Access-Control-Allow-Origin": "http://localhost:3000",
 		"Access-Control-Allow-Methods": "GET",
 		"Access-Control-Allow-Headers": "Content-Type",
 	};
 
-	response.setBody({ token: accessToken.toJwt() });
+	response.setBody({ token: accessToken.toJwt(), status: 200 });
 	response.setHeaders(headers);
 
-	callback(null, response);
+	twilioClient.messages
+		.create({ body: event.Body, to: event.To, from: event.From })
+		.then((message) => {
+			callback(null, response);
+		})
+		.catch((error) => {
+			callback(error, response);
+		});
+
+	// callback(null, response);
 };

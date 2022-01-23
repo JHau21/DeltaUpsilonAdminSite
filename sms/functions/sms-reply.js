@@ -20,19 +20,18 @@ exports.handler = function (context, event, callback) {
 
 	const resp = new Twilio.Response();
 
-	resp.setHeaders(headers);
-
 	twilioClient.messages
 		.create({ body, to, from })
 		.then((message) => {
-			console.log("SMS successfully sent");
-			console.log(message.sid);
-			// Make sure to only call `callback` once everything is finished, and to pass
-			// null as the first parameter to signal successful execution.
-			return callback(null, `Success! Message SID: ${message.sid}`);
+			resp.setBody({ status: 200, message });
+			resp.setHeaders(headers);
+			callback(null, resp);
 		})
 		.catch((error) => {
-			console.error(error);
-			return callback(error);
+			resp.setBody({ status: 404 });
+			resp.setHeaders(headers);
+			callback(error, resp);
 		});
+
+	callback(null, resp);
 };
