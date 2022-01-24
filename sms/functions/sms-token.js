@@ -2,8 +2,6 @@
 exports.handler = function (context, event, callback) {
 	const { ACCOUNT_SID, SYNC_SERVICE_SID, API_SID, API_SECRET } = context;
 
-	const twilioClient = context.getTwilioClient();
-
 	const IDENTITY = "handler";
 
 	const access = Twilio.jwt.AccessToken;
@@ -31,14 +29,5 @@ exports.handler = function (context, event, callback) {
 	response.setBody({ token: accessToken.toJwt(), status: 200 });
 	response.setHeaders(headers);
 
-	twilioClient.messages
-		.create({ body: event.Body, to: event.To, from: event.From })
-		.then((message) => {
-			callback(null, response);
-		})
-		.catch((error) => {
-			callback(error, response);
-		});
-
-	// callback(null, response);
+	callback(null, response);
 };

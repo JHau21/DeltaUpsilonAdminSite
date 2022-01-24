@@ -1,37 +1,26 @@
 exports.handler = function (context, event, callback) {
 	// The pre-initialized Twilio Client is available from the `context` object
-	const twilioClient = context.getTwilioClient();
+	const twiml = new Twilio.twiml.MessagingResponse();
 
-	// Query parameters or values sent in a POST body can be accessed from `event`
-	const from = event.From || "+16075245881";
-	const to = event.To || "+13038594840";
-	const body = event.Body || "Hello, World!";
+	const reply = event.Body.toLowerCase();
 
-	// Use `messages.create` to generate a message. Be sure to chain with `then`
-	// and `catch` to properly handle the promise and call `callback` _after_ the
-	// message is sent successfully!
+	if (reply === "y") {
+		twiml.message(
+			"Thank you for confirming your attendance, Jack will be notified!"
+		);
+		twiml.message(
+			{ to: "+13038594840" },
+			`${event.From} will be attending.`
+		);
+	} else if (reply === "n") {
+		twiml.message("Can you please tell me why you can't attend?");
+	} else {
+		twiml.message("Thank you, your message has been sent to Jack.");
+		twiml.message(
+			{ to: "+13038594840" },
+			`${event.From} will not be attending, because ${event.Body}.`
+		);
+	}
 
-	const headers = {
-		"Content-Type": "application/json",
-		"Access-Control-Allow-Origin": "*",
-		"Access-Control-Allow-Methods": "GET",
-		"Access-Control-Allow-Headers": "Content-Type",
-	};
-
-	const resp = new Twilio.Response();
-
-	twilioClient.messages
-		.create({ body, to, from })
-		.then((message) => {
-			resp.setBody({ status: 200, message });
-			resp.setHeaders(headers);
-			callback(null, resp);
-		})
-		.catch((error) => {
-			resp.setBody({ status: 404 });
-			resp.setHeaders(headers);
-			callback(error, resp);
-		});
-
-	callback(null, resp);
+	callback(null, twiml);
 };
