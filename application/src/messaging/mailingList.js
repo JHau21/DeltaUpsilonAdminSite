@@ -1,0 +1,92 @@
+export const recipients = [
+	{
+		firstName: "Ryan",
+		lastName: "Fletcher",
+		phoneNumber: "7202182518",
+		email: "ryfl0380@colorado.edu",
+	},
+	{
+		firstName: "Jack",
+		lastName: "Hau",
+		phoneNumber: "3038594840",
+		email: "joha4509@colorado.edu",
+	},
+	{
+		firstName: "Thomas",
+		lastName: "Harris",
+		phoneNumber: "7207260902",
+		email: "12thomas.th@gmail.edu",
+	},
+	{
+		firstName: "Fernando",
+		lastName: "Hern Munoz",
+		phoneNumber: "3035068995",
+		email: "fehe7803@colorado.edu",
+	},
+	{
+		firstName: "Andrew",
+		lastName: "Kuzik",
+		phoneNumber: "7208103102",
+		email: "akuzik20@gmail.com",
+	},
+	{
+		firstName: "Jonathon",
+		lastName: "Pfenning",
+		phoneNumber: "3032573105",
+		email: "jopf9978@colorado.edu",
+	},
+	{
+		firstName: "Hunter",
+		lastName: "Posso",
+		phoneNumber: "7135400389",
+		email: "hupo0041@colorado.edu",
+	},
+	{
+		firstName: "Caleb",
+		lastName: "Riccio",
+		phoneNumber: "9705319914",
+		email: "caleb.riccio@colorado.edu",
+	},
+	{
+		firstName: "Jimmy",
+		lastName: "Sines",
+		phoneNumber: "7204505163",
+		email: "james.sines@colorado.edu",
+	},
+	{
+		firstName: "Varunjit",
+		lastName: "Srinivas",
+		phoneNumber: "6509336203",
+		email: "vasr6212@colorado.edu",
+	},
+	{
+		firstName: "Ethan",
+		lastName: "Walters",
+		phoneNumber: "3039197221",
+		email: "ethan.walters@colorado.edu",
+	},
+	{
+		firstName: "Nick",
+		lastName: "Torres",
+		phoneNumber: "7206009560",
+		email: "vasr6212@colorado.edu",
+	},
+	{
+		firstName: "Josh",
+		lastName: "Creany",
+		phoneNumber: "7193716626",
+		email: "jocr2861@colorado.edu",
+	},
+	{
+		firstName: "Ricardo",
+		lastName: "Reyes",
+		phoneNumber: "7207676808",
+		email: "rire5658@colorado.edu",
+	},
+	{
+		firstName: "Jay",
+		lastName: "Mayers",
+		phoneNumber: "7203186244",
+		email: "jame4430@colorado.edu",
+	},
+];
