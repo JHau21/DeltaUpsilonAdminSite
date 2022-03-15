@@ -99,7 +99,7 @@ export const recipients = [
 		firstName: "Avi",
 		lastName: "Yel",
 		phoneNumber: "7204539634",
-		email: "IDK",
+		email: "avye6946@colorado.edu",
 	},
 	{
 		firstName: "Evan",
@@ -111,6 +111,6 @@ export const recipients = [
 		firstName: "Alonzo",
 		lastName: "IDK",
 		phoneNumber: "IDK",
-		email: "IDK",
+		email: "alro2254@colorado.edu",
 	},
 ];
