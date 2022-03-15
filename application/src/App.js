@@ -6,35 +6,46 @@ import { recipients } from "./messaging/mailingList.js";
 
 function App() {
 	const testMessage = async () => {
-		let phoneNumbers = ["+13038594840"];
+		let phoneNumbers = [];
+
+		recipients.map(({ phoneNumber }) =>
+			phoneNumbers.push("+1" + phoneNumber)
+		);
 
 		// recipients.map(({ phoneNumber }) =>
 		// 	phoneNumbers.push("+1" + phoneNumber)
 		// );
 
-		const messageBody =
-			"NoReply: Hi! Please let Jack know if you will be attending Chapter by 7pm tomorrow! Jack's Number: (303) 859-4840";
+		console.log(phoneNumbers);
+
+		const messageBody = `NoReply: Important Information from Chapter 03/15/22
+		\n                                                \n
+		New Members: Sign Due Agreements and Fill out Bio. Cards 
+		\n                                                \n
+		Events this Week: Archery March 18th @ 6:30pm
+		`;
 		let failedSend = [];
 
 		let response;
 
-		phoneNumbers.map(async (number) => {
-			const sendUrl = `https://deltaupsilonsms-3011-dev.twil.io/sms-send-notification?To=${number}&From=+17206371593&Body=${messageBody}`;
-			response = await fetch(sendUrl);
+		const sendUrl = `https://deltaupsilonsms-3011-dev.twil.io/sms-send-notification?To=${+13038594840}&From=+17206371593&Body=${messageBody}`;
 
-			const { success, message } = await response.json();
+		// phoneNumbers.map(async (number) => {
+		// 	const sendUrl = `https://deltaupsilonsms-3011-dev.twil.io/sms-send-notification?To=${number}&From=+17206371593&Body=${messageBody}`;
+		// 	response = await fetch(sendUrl);
+		// 	const { success, message } = await response.json();
 
-			if (!success) {
-				failedSend.push({ number, message });
-			}
-		});
+		// 	if (!success) {
+		// 		failedSend.push({ number, message });
+		// 	}
+		// });
 
-		if (failedSend.length > 0) {
-			// Text myself about failure?
-			console.log(
-				"Not sure what to do yet, but eventually it would be good to notify myself of failure"
-			);
-		}
+		// if (failedSend.length > 0) {
+		// 	// Text myself about failure?
+		// 	console.log(
+		// 		"Not sure what to do yet, but eventually it would be good to notify myself of failure"
+		// 	);
+		// }
 	};
 
 	useEffect(() => {

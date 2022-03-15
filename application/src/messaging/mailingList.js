@@ -89,4 +89,28 @@ export const recipients = [
 		phoneNumber: "7203186244",
 		email: "jame4430@colorado.edu",
 	},
+	{
+		firstName: "Zeke",
+		lastName: "Miles",
+		phoneNumber: "7208835894",
+		email: "IDK",
+	},
+	{
+		firstName: "Avi",
+		lastName: "Yel",
+		phoneNumber: "7204539634",
+		email: "IDK",
+	},
+	{
+		firstName: "Evan",
+		lastName: "B",
+		phoneNumber: "3033324457",
+		email: "IDK",
+	},
+	{
+		firstName: "Alonzo",
+		lastName: "IDK",
+		phoneNumber: "IDK",
+		email: "IDK",
+	},
 ];
