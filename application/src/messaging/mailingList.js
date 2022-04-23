@@ -89,12 +89,12 @@ export const recipients = [
 		phoneNumber: "7203186244",
 		email: "jame4430@colorado.edu",
 	},
-	{
-		firstName: "Zeke",
-		lastName: "Miles",
-		phoneNumber: "7208835894",
-		email: "IDK",
-	},
+	// {
+	// 	firstName: "Zeke",
+	// 	lastName: "Miles",
+	// 	phoneNumber: "7208835894",
+	// 	email: "IDK",
+	// },
 	{
 		firstName: "Avi",
 		lastName: "Yel",
@@ -105,12 +105,12 @@ export const recipients = [
 		firstName: "Evan",
 		lastName: "B",
 		phoneNumber: "3033324457",
-		email: "IDK",
+		email: "evbl1599@colorado.edu",
 	},
 	{
 		firstName: "Alonzo",
-		lastName: "IDK",
-		phoneNumber: "IDK",
+		lastName: "R",
+		phoneNumber: "7207497101",
 		email: "alro2254@colorado.edu",
 	},
 ];

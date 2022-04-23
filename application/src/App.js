@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { SyncClient } from "twilio-sync";
+// import { SyncClient } from "twilio-sync";
 import logo from "./logo.svg";
 import "./App.css";
 import { recipients } from "./messaging/mailingList.js";
@@ -12,20 +12,8 @@ function App() {
 			phoneNumbers.push("+1" + phoneNumber)
 		);
 
-		// recipients.map(({ phoneNumber }) =>
-		// 	phoneNumbers.push("+1" + phoneNumber)
-		// );
+		const messageBody = `NoReply: Hi! Please let Jack know if you will be attending Chapter on Monday by 7pm tomorrow. Jack's Number: (303) 859-4840`;
 
-		console.log(phoneNumbers);
-
-		const messageBody = `NoReply: Important Information from Chapter 03/15/22
-		\n                                                \n
-		New Members: Sign Due Agreements / Fill out Bio. Cards 
-		\n                                                \n
-		Events this Week: Archery March 18th @ 6:30pm @ Empty Quiver
-		\n                                                \n
-		Later Events: Movie Night March 25th or 26th / A Precious Child March 31st / Hazing Talk Aprill 7th.
-		`;
 		let failedSend = [];
 
 		let response;
@@ -61,7 +49,7 @@ function App() {
 						testMessage();
 					}}
 				>
-					Edit <code>src/App.js</code> and save to reload.
+					Click here to send message.
 				</p>
 			</header>
 		</div>
